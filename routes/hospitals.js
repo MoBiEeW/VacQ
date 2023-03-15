@@ -7,7 +7,10 @@ const {
   deleteHospital,
 } = require("../controllers/hospitals");
 const router = express.Router();
+const appointmentRouter = require("./appointments");
 const { protect, authorize } = require("../middleware/auth");
+
+router.use("/:hospitalId/appointments/", appointmentRouter);
 
 router
   .route("/")
